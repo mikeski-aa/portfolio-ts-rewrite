@@ -5,17 +5,17 @@ import VertBar from "../src/components/VertBar";
 import NavBar from "./components/NavBar";
 import Footer from "../src/components/Footer";
 import { useInView } from "../src/hooks/useInView";
-import { helperScrollStateUpdate } from "./utils/helperStateUpdates";
+import { helperScrollStateUpdate } from "../src/utils/helperStateUpdates";
 import BonusPage from "../src/components/BonusPage";
 import TerminalBox from "../src/components/TerminalBox";
 import AllTabsClosed from "../src/components/AllTabsClosed";
 import EmailModal from "../src/components/AllTabsClosed";
-import NewMainPageDesign from "./components/new_main_page/NewMainPageDesign";
-import NewAboutComp from "./components/new_main_page/NewAboutComponent";
-import skills from "./utils/skillsData";
-import NewSkillBox from "./components/new_main_page/NewSkillBox";
-import NewProjectComp from "./components/new_main_page/NewProjectsComp";
-import NewContactMe from "./components/new_main_page/NewContactMe";
+import NewMainPageDesign from "../src/components/new_main_page/NewMainPageDesign";
+import NewAboutComp from "../src/components/new_main_page/NewAboutComponent";
+import skills from "../src/utils/skillsData";
+import NewSkillBox from "../src/components/new_main_page/NewSkillBox";
+import NewProjectComp from "../src/components/new_main_page/NewProjectsComp";
+import NewContactMe from "../src/components/new_main_page/NewContactMe";
 
 import BackgroundParticles from "../src/components/BackgroundParticles";
 
