@@ -47,7 +47,9 @@ interface IGlobalContext {
   setDontRun: () => void;
 }
 
-export const GlobalContext: any = createContext<IGlobalContext>(undefined);
+export const GlobalContext: any = createContext<IGlobalContext | undefined>(
+  undefined
+);
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>("About_me.jsx");
