@@ -1,0 +1,49 @@
+.newProjImgContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.newProjectDiv {
+  border: 3px solid orange;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+
+.projImg {
+  object-fit: contain;
+
+  transition-duration: 2s;
+  opacity: 1;
+}
+
+.directsc.small {
+  max-width: 10vw;
+}
+
+.projImg.new {
+  opacity: 0;
+}
+
+.directsc {
+  max-width: 50vw;
+  border-radius: 25px;
+}
+
+.normal {
+  position: absolute;
+}
+
+.projImg.desktop {
+  max-width: 50vw;
+}
+
+.projImg.mobile {
+  max-height: 30vw;
+}

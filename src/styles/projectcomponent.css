@@ -1,0 +1,37 @@
+.projectContainer {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  gap: 0.8rem;
+  border: 2px solid #9cdcfe;
+  padding: 10px;
+  min-width: 250px;
+  transition-duration: 0.5s;
+}
+
+.projectContainer:hover {
+  border: 2px solid #c586c0;
+}
+
+.projectHeading {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.projectLink {
+  color: #ce9178;
+}
+
+.multiLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.notHosted {
+  color: rgb(219, 54, 54);
+}
+
+.projectLink:hover {
+  color: #c586c0;
+}

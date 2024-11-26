@@ -1,0 +1,357 @@
+.projectBoxContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0);
+  /* box-shadow: 10px 10px 10px grey; */
+  padding: 15px;
+  width: fit-content;
+  align-items: center;
+}
+
+.projectDescription {
+  width: fit-content;
+  transition: 0.5s ease-in-out;
+}
+
+.projectDescription.false {
+  /* max-height: 0vh; */
+  overflow: hidden;
+  opacity: 0;
+  max-width: 0px;
+}
+
+.projectDescription.true {
+  /* width: 55vw; */
+  text-wrap: wrap;
+  /* max-height: calc(100vh - <offset>) */
+  opacity: 1;
+  max-width: 80vw;
+}
+
+.detailsBtn {
+  width: 10rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  background: none;
+  border: 2px solid #9cdcfe;
+  color: white;
+  transition: 0.5s;
+}
+
+.detailsBtn:hover {
+  cursor: pointer;
+  border-color: #d0dcaa;
+}
+
+.temp {
+  min-height: 100%;
+}
+
+.imageCarousel {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0);
+  align-items: center;
+  width: fit-content;
+}
+
+.LRbuttons {
+  width: 100%;
+  position: relative;
+  top: -150px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+.positionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* position: relative;
+  display: relative;
+  top: -15px; */
+}
+
+.dualImgCar:hover {
+  cursor: pointer;
+}
+
+.techStackUl {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.techStackList {
+  display: flex;
+  gap: 2rem;
+}
+
+.tsListItem {
+  width: 4rem;
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+}
+
+.imagesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 55vw; */
+}
+
+.btnx.active {
+  background-color: #9cdcfe;
+}
+
+.btnx {
+  width: 25px;
+  height: 25px;
+  background: none;
+  border: 2px solid grey;
+  border-radius: 25px;
+  transition-duration: 0.5s;
+}
+
+.btnx:hover {
+  cursor: pointer;
+  background-color: #9cdcfe;
+}
+
+.arrowImgRight,
+.arrowImgLeft {
+  width: 25px;
+  height: 25px;
+  fill: #c586c0;
+}
+
+.arrowImgLeft {
+  transform: rotateZ(180deg);
+}
+
+.arrowBtns {
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid #9cdcfe;
+  background-color: #d0dcaa00;
+  transition-duration: 0.5s;
+}
+
+.arrowBtns:hover {
+  cursor: pointer;
+  border-color: #d0dcaa;
+}
+
+.projectTitle {
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.projectTitle:hover {
+  cursor: default;
+}
+
+.modal.false {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(65, 65, 65, 0.384);
+  backdrop-filter: blur(5px);
+  z-index: 300;
+}
+
+.modalBtns {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  background-color: rgb(35, 35, 35);
+  padding: 5px;
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e1e;
+  width: fit-content;
+  align-items: center;
+}
+
+.modalTopBar {
+  background-color: #3c3c3c;
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: right;
+}
+
+.modalBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  transition-duration: 0.2s;
+  font-weight: 700;
+}
+
+.modalBtn:hover {
+  background-color: rgba(128, 128, 128, 0.518);
+  cursor: pointer;
+}
+
+.modalBtn.close:hover {
+  background-color: #e11b2b;
+  filter: brightness(1.5);
+}
+
+.crossImg {
+  transition-duration: 0.5s;
+  stroke-width: 10px;
+  stroke: white;
+  filter: invert(1);
+}
+
+.winIcons {
+  width: 20px;
+  height: 25px;
+  fill: white;
+}
+
+.largeImg {
+  width: 80vw;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.ulStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.testClass {
+  font-weight: bolder;
+}
+
+.testImg.mobile {
+  max-width: 30vw;
+}
+
+.testImg.mobile {
+  max-width: 15vw;
+}
+
+.testImg.desktop {
+  max-width: 40vw;
+}
+
+.modalImg.mobile {
+  max-height: 50vh;
+  width: auto;
+}
+
+.modalImg.desktop {
+  max-height: 50vh;
+  width: auto;
+}
+
+.dualImgCar {
+  display: flex;
+  align-items: center;
+}
+
+.dualImgLarge {
+  display: flex;
+  max-width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .projectDescription.true {
+    max-width: 85vw;
+  }
+
+  .largeImg {
+    object-fit: contain;
+    height: 50vh;
+    width: 100%;
+  }
+
+  .carImg {
+    height: 250px;
+  }
+}
+
+@media (max-width: 800px) {
+  .testImg.desktop,
+  .modalImg.desktop {
+    display: none;
+  }
+
+  .testImg.mobile {
+    max-width: 60vw;
+  }
+  .modalImg {
+    width: auto;
+    height: 70vh;
+  }
+  .projectBoxContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 620px) {
+  .modalImg {
+    height: 70vh;
+    width: auto;
+  }
+}
+
+@media (max-width: 470px) {
+  .positionButtons {
+    gap: 0.25rem;
+  }
+
+  .btnx {
+    width: 15px;
+    height: 15px;
+  }
+
+  .imagesContainer {
+    width: 80vw;
+  }
+
+  .projectDescription {
+    width: 100%;
+  }
+
+  .imageCarousel {
+    max-width: 150px;
+  }
+
+  .projectBoxContainer {
+    overflow: hidden;
+  }
+}

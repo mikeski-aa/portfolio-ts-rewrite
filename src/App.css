@@ -1,42 +1,175 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 6rem;
+  justify-content: space-between;
+  height: 100%;
+
+  width: 100%;
+  margin-top: 61px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.testone,
+.testtwo {
+  width: 100%;
+  height: 500px;
+  background-color: green;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.mainTest {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 40px;
+  transition: 0.5s ease-in-out;
+  height: 100vh;
+}
+
+.mainTest.true {
+  margin-left: 220px;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+.header {
+  background-color: #252526;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid black;
+  z-index: 25;
+  height: fit-content;
+}
+
+.whiteLine {
+  color: white;
+}
+
+.aboutMeDivContainer {
+  margin-top: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: left;
+  gap: 2px;
+  background-color: #252526;
+  overflow: auto;
+  z-index: 500;
+}
+
+.appLocation {
+  color: grey;
+  display: flex;
+  gap: 5px;
+  background-color: #1e1e1e;
+  padding: 3px;
+  box-shadow: 0 4px 2px -2px rgb(0, 0, 0);
+}
+
+.appLocation:hover {
+  cursor: default;
+}
+
+.backToTop {
+  position: static;
+  bottom: 0;
+}
+
+h2:hover {
+  cursor: default;
+}
+
+.dragContTest {
+  margin-top: 5rem;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  display: flex;
+  gap: 1rem;
+  margin-left: 15rem;
+}
+
+.dragItem {
+  background-color: blue;
+  color: white;
+  height: 50px;
+}
+
+.pageTest {
+  display: flex;
+}
+
+.headtest {
+  position: fixed;
+  z-index: 90;
+  width: 100%;
+}
+
+.blankSpacer {
+  height: 500px;
+  background-color: red;
+}
+
+.exportLine {
+  margin-top: 20px;
+}
+
+.codeStyle,
+.exportLine {
+  margin-left: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.headtest.hidden {
+  display: none;
+}
+
+.sectionDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 61px;
+}
+
+.contentHolder.hidden {
+  display: none;
+}
+
+.sectionDiv.skills {
+}
+
+.sectionDiv.hidden {
+  display: none;
+}
+
+.sectionDiv.last {
+  border: none;
+  margin-bottom: 3.9rem;
+}
+
+.redboxtest {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+@media (max-width: 485px) {
+  .codeStyle,
+  .exportLine {
+    font-size: 0.63rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 485px) and (max-width: 540px) {
+  .codeStyle,
+  .exportLine {
+    font-size: 0.88rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#tsparticles {
+  z-index: -5;
 }

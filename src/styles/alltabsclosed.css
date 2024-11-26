@@ -1,0 +1,30 @@
+.allTabsClosed {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reopenContent {
+  border: 4px solid orange;
+  border-radius: 25px;
+  width: 55vw;
+  color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.textReopen {
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  width: 80%;
+}
+
+.gifimg {
+  padding: 4px;
+  width: 55vw;
+}

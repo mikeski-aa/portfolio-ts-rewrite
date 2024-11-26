@@ -1,0 +1,70 @@
+.folderChevron {
+  background: none;
+  width: 10px;
+  height: 10px;
+  fill: grey;
+}
+
+.folderChevron.true {
+  transform: rotateZ(90deg);
+}
+
+.folderBtn {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 0.8rem;
+  width: 180px;
+
+  gap: 5px;
+}
+
+.folderBtn.root {
+  font-weight: 600;
+  text-overflow: ellipsis;
+  font-size: 0.6rem;
+}
+
+.folderBtn:hover {
+  cursor: pointer;
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileList.false {
+  display: none;
+}
+
+.childOne {
+  margin-top: 5px;
+}
+
+.childTwo {
+  margin-top: 5px;
+}
+
+.btnOne {
+  padding-left: 10px;
+}
+
+.btnTwo {
+  padding-left: 20px;
+}
+
+.btnThree {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.componentList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.folderDiv {
+  width: 180px;
+}

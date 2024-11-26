@@ -1,0 +1,205 @@
+.terminalDiv {
+  border-top: 2px solid grey;
+  height: 300px;
+  background-color: #1e1e1e;
+
+  margin-top: 170px;
+}
+
+.terminalDiv.false {
+  margin: 0px;
+}
+
+.terminalRightBtnDiv {
+  display: flex;
+
+  align-items: center;
+  margin-right: 5px;
+}
+
+.terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25.74px;
+  padding-bottom: 10px;
+  width: inherit;
+}
+
+.terminalBtnDummy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  background: none;
+  border: none;
+}
+.terminalBtnDummyDuoDiv {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  gap: -15px;
+}
+
+.terminalBtnDummyDuoDiv:hover {
+  background-color: rgba(192, 192, 192, 0.211);
+}
+
+.terminalBtnDummyDuo {
+  display: flex;
+  background: none;
+  border: none;
+}
+
+.terminalIcon {
+  width: 15px;
+  height: 15px;
+  fill: #a5b0bb;
+  filter: brightness(8);
+}
+
+.terminalIcon.top {
+  transform: rotateZ(-90deg);
+  width: 10px;
+  height: 15px;
+}
+
+.terminalIcon.down {
+  transform: rotateZ(90deg);
+  width: 10px;
+  height: 15px;
+}
+
+.terminalIcon.invert {
+  filter: invert(1);
+}
+
+.terminalBtnDummyDuo:hover,
+.terminalBtnDummy:hover {
+  background-color: rgba(128, 128, 128, 0.374);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.terminalBtn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  color: #a5b0bb;
+  padding: 10px;
+  font-size: 0.7rem;
+  padding-bottom: 2px;
+}
+
+.terminalBtn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.machine {
+  color: #23d16f;
+}
+
+.lineBlue {
+  color: #3b8eea;
+}
+
+.terminalLine {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.terminalInputDiv {
+  display: flex;
+  align-items: center;
+}
+
+.terminalInput {
+  display: flex;
+  width: 40%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.terminalInput:focus {
+  outline: none;
+}
+
+.mainTerminalTextbox {
+  height: 205px;
+  overflow-y: auto;
+}
+
+.redBox {
+  background-color: red;
+  position: relative;
+  top: 275px;
+  transform: translateY(-43px);
+}
+
+.terminalBtn.active {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.problemsText {
+  color: white;
+  font-size: 0.7rem;
+  height: 236px;
+}
+
+.outputDiv {
+  width: 25px;
+  height: 16px;
+  margin-left: 10px;
+  border-left: 3px solid #a5b0bb;
+}
+
+.outputContDiv {
+  height: 236px;
+}
+
+.debugDiv {
+  height: 236px;
+}
+
+.portText,
+.portBox {
+  font-size: 0.7rem;
+  color: white;
+}
+
+.portBox {
+  width: 250px;
+  background-color: #0e639c;
+  border: none;
+  border-radius: 3px;
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.portBox:hover {
+  background-color: #1177bb;
+  cursor: pointer;
+}
+
+.portDiv {
+  height: 236px;
+}
+
+.terminalLeftBtnDiv {
+  max-width: 401.5px;
+}
+
+.terminalspacer {
+  height: 20px;
+}
+
+@media (max-width: 963px) {
+  .terminalDiv {
+    display: none;
+  }
+}

@@ -1,0 +1,56 @@
+.mySkillsComponent {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  margin-top: 3.9rem;
+}
+
+.mySkillsDiv {
+  display: flex;
+  gap: 1rem;
+  max-width: 60vw;
+}
+
+.mySkillsTitle {
+  text-align: left;
+}
+
+.mySkillsDiv {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 500px) {
+  .skillBox {
+    width: 70px;
+    font-size: small;
+  }
+}
+
+.react-activity-calendar.styles-module_container__GBNxC {
+  transform: scale(75%);
+}
+
+@media (max-width: 850px) {
+  .react-activity-calendar.styles-module_container__GBNxC {
+    width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mySkillsComponent {
+    margin-top: 140px;
+  }
+}
+
+@media (max-width: 925px) {
+  .mySkillsComponent {
+    margin-top: 93px;
+  }
+}

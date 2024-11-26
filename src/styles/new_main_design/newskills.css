@@ -1,0 +1,52 @@
+.newSection.Skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: fit-content;
+}
+
+.scrollHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 80%;
+  min-height: 10rem;
+}
+
+.scrollHolder {
+}
+
+.newSkillBoxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-bottom: 3px solid orange;
+  gap: 0.5rem;
+  padding: 5px;
+  transition-duration: 0.5s;
+  max-height: 2rem;
+}
+
+.newSkillIcon {
+  width: 15px;
+  height: 15px;
+  fill: orange;
+}
+
+.newSkillText {
+  font-weight: 600;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newSkillBoxContainer:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  transform: scale(1.1);
+  border: 3px solid orange;
+}

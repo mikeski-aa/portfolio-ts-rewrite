@@ -1,0 +1,130 @@
+.newProjectCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.newProjectCard {
+  color: white;
+  outline: 3px solid orange;
+  border-radius: 25px;
+  height: auto;
+  width: fit-content;
+  padding-bottom: 15px;
+  transition-duration: 0.5s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newProjectDesc {
+  min-width: 400px;
+  max-width: 20vw;
+  position: absolute;
+  background-color: rgba(21, 21, 21, 0.853);
+  height: 99%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  margin-top: 0px;
+}
+
+.newProjectCard:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 5px 5px 5px 5px rgb(129, 87, 2);
+}
+
+.newProjectDesc.false {
+  display: none;
+}
+
+.cardImgSmall {
+  max-width: 20vw;
+  min-width: 400px;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.newProjectImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.techCard {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 20vw;
+  min-width: 400px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.techCard > .newSkillBoxContainer {
+  max-width: 5vw;
+  font-size: 0.5rem;
+}
+
+.projectLinkIcon {
+  width: 25px;
+  height: 25px;
+  fill: orange;
+}
+
+.projectLinksDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 25px;
+}
+
+.btnCard {
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  gap: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.btnCard:hover {
+  cursor: pointer;
+  border-bottom: 2px solid orange;
+}
+
+.projText,
+.projectHeading {
+  text-align: center;
+}
+
+@media (max-width: 510px) {
+  .cardImgSmall,
+  .newProjectDesc,
+  .techCard {
+    min-width: 60vw;
+    max-width: 80vw;
+  }
+
+  .projText {
+    font-size: 0.6rem;
+  }
+
+  .projectHeading {
+    font-size: 1rem;
+  }
+
+  .projectLinksDiv {
+    margin-bottom: 0;
+  }
+
+  .newProjectCardsContainer {
+    justify-content: center;
+  }
+}

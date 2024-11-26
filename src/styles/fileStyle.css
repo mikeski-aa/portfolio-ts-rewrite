@@ -1,0 +1,42 @@
+.fileBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  border: none;
+  background: none;
+  color: white;
+  padding-left: 30px;
+  background-color: rgba(184, 184, 184, 0);
+}
+
+.fileBtn:hover {
+  cursor: pointer;
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileIcon {
+  width: 10px;
+  height: 10px;
+  fill: rgb(44, 168, 240);
+}
+
+.fileBtn.About_me.zero {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.My_projects.one {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.My_skills.two {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.Contact_me.three {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.bonusPage.four {
+  background-color: rgba(87, 87, 87, 0.363);
+}

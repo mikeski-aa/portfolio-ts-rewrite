@@ -1,0 +1,236 @@
+.contactMeComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  color: white;
+  width: 100%;
+  margin-top: 3.9rem;
+}
+
+.contactMeDiv {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contactMeTitle {
+  text-align: left;
+}
+
+.contactOption:hover {
+  background-color: rgba(128, 128, 128, 0.356);
+  cursor: pointer;
+}
+
+.contactMeBlurb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.contactBlurb {
+  width: fit-content;
+}
+
+.innerContactDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 40vw;
+  border: 4px solid #c586c0;
+  padding: 15px;
+}
+
+.contactBlurb.lone {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.contactBlurb.ltwo {
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.mobileContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileMessage {
+  color: white;
+  border: 4px solid #c586c0;
+  width: 50%;
+  padding: 15px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+  max-height: 80vw;
+  height: fit-content;
+}
+
+@media (max-width: 700px) {
+  .innerContactDiv {
+    width: 90%;
+  }
+
+  .contactBlurb.lone {
+    font-size: 1.5rem;
+  }
+
+  .contactBlurb.ltwo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .innerContactDiv {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactMeComponent {
+    margin-top: 140px;
+  }
+}
+
+@media (max-width: 925px) {
+  .contactMeComponent {
+    margin-top: 93px;
+  }
+}
+
+.fileBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  border: none;
+  background: none;
+  color: white;
+  padding-left: 30px;
+  background-color: rgba(255, 0, 0, 0) (253, 253, 253);
+}
+
+.fileBtn:hover {
+  cursor: pointer;
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileIcon {
+  width: 10px;
+  height: 10px;
+  fill: rgb(44, 168, 240);
+}
+
+.fileBtn.About_me.zero {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.My_projects.one {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.My_skills.two {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.Contact_me.three {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.fileBtn.bonusPage.four {
+  background-color: rgba(87, 87, 87, 0.363);
+}
+
+.explorerContent {
+  margin-top: 10px;
+}
+
+.explorerHeading {
+  margin-left: 15px;
+  font-size: 0.9rem;
+  padding: 5px;
+}
+
+.explorerContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.explorerContainer.false {
+  overflow: hidden;
+}
+
+.vertBar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: 100%;
+}
+
+.vertBtnDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  background-color: #333333;
+  width: 40px;
+  height: 100%;
+  align-items: center;
+}
+
+.vertIcon {
+  fill: #717171;
+  width: 25px;
+  height: 25px;
+}
+
+.vertBtn {
+  border: 2px solid rgba(255, 255, 255, 0);
+  background: none;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertBtn.true {
+  border-left: 2px solid white;
+}
+
+.vertIcon:hover {
+  fill: white;
+}
+
+.vertBtn:hover {
+  cursor: pointer;
+}
+
+.explorerDiv {
+  background-color: #252526;
+  transition: 0.5s ease-in-out;
+}
+
+.explorerDiv.false {
+  max-width: 0;
+}
+
+.explorerDiv.true {
+  max-width: 190px;
+}
+
+.explorerDiv {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

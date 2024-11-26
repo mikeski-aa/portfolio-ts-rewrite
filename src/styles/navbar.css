@@ -1,0 +1,25 @@
+.fileLoc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: small;
+  color: rgb(211, 208, 208);
+}
+
+.locationIcon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(1);
+}
+
+.smallIcon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(3);
+}
+
+.smallIcon.arrow {
+  fill: rgb(211, 208, 208);
+  height: 10px;
+}

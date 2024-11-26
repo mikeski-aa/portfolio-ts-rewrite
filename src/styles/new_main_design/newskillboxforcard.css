@@ -1,0 +1,15 @@
+.newSkillIconCard {
+  width: 1vw;
+  height: 1vw;
+  min-width: 15px;
+  min-height: 15px;
+  fill: orange;
+}
+
+.newSkillBoxContainerCard {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.5rem;
+  justify-content: center;
+  align-content: center;
+}

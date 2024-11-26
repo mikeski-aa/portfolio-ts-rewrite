@@ -1,0 +1,70 @@
+.navBtn {
+  border: none;
+  background: none;
+  padding: 8px;
+  padding-left: 15px;
+  padding-right: 0px;
+  font-size: 1rem;
+  color: #fffff1;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navBtnDiv {
+  border: none;
+  background: none;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 8px;
+  font-size: 1rem;
+  color: #fffff1;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navBtn:hover {
+  cursor: pointer;
+}
+.navBtnDiv.true {
+  background-color: #1e1e1e;
+}
+
+.closePageIcon {
+  width: 15px;
+  height: 15px;
+  filter: invert(1) brightness(3);
+}
+
+.closePageBtn {
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.closePageBtn:hover {
+  background-color: rgba(128, 128, 128, 0.289);
+  cursor: pointer;
+}
+
+.closePageBtn.hide {
+  visibility: hidden;
+}
+
+.btnTextNavBtn {
+  transition-duration: 0.5s;
+}
+
+@media (max-width: 883px) {
+  .btnTextNavBtn {
+    width: 0px;
+    overflow-x: hidden;
+  }
+}
