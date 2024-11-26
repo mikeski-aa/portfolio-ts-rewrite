@@ -3,12 +3,12 @@ import ReactIconComponent from "../assets/icons/react.svg?react";
 import JSIconComponent from "../assets/bwicons/yellowjs.svg?react";
 import Arrow from "../assets/arrow.svg?react";
 import "../styles/navbar.css";
-import { useState, useContext } from "react";
-import NavButton from "./NavButton";
-import { GlobalContext } from "../App";
+import { useContext } from "react";
+import NavButton from "../components/NavButton";
+import { GlobalContext, IGlobalContext } from "../App";
 
-function NavBar(props) {
-  const globalContext = useContext(GlobalContext);
+function NavBar(props: any) {
+  const globalContext: IGlobalContext = useContext(GlobalContext);
 
   return (
     <>

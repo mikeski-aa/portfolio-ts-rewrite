@@ -1,11 +1,9 @@
 import { useState, useContext } from "react";
 import "../styles/navbutton.css";
-import { GlobalContext } from "../App";
-import JSIconComponent from "../assets/bwicons/yellowjs.svg?react";
+import { GlobalContext, IGlobalContext } from "../App";
 import ReactIconComponent from "../assets/icons/react.svg?react";
 import CrossIcon from "../assets/bwicons/cross2.svg?react";
 import { smoothScroll, notSmoothScroll } from "../utils/helperStateUpdates";
-import YellowJsAlt from "../assets/bwicons/yellowjsalt.svg?react";
 import testIcon from "../assets/bwicons/yellowjs.svg";
 
 import {
@@ -27,7 +25,7 @@ import {
 
 function NavButton(props) {
   const [mouseOver, setMouseOver] = useState(false);
-  const globalContext = useContext(GlobalContext);
+  const globalContext: IGlobalContext = useContext(GlobalContext);
 
   // handle setting index data when tab is beggining to be dragged
   const handleDragStart = (e, index) => {
@@ -144,7 +142,7 @@ function NavButton(props) {
               props.name
             );
             // console.log("only bonus active");
-            globalContext.setActivePage(null);
+            globalContext.setActivePage("zero");
           }
         } else {
           // console.log("bonus present but inactive");
@@ -171,7 +169,7 @@ function NavButton(props) {
           globalContext.setDefaultPages,
           props.name
         );
-        globalContext.setActivePage(null);
+        globalContext.setActivePage("zero");
       }
     }
   };
