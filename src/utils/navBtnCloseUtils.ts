@@ -1,11 +1,22 @@
-function manyPagesCloseOne(navItems, setNavItems, input) {
+import { Dispatch, SetStateAction } from "react";
+import { INavItem } from "../App";
+
+function manyPagesCloseOne(
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
+) {
   const copyNav = [...navItems];
 
   const filteredNav = copyNav.filter((item) => item.name != input);
   setNavItems(filteredNav);
 }
 
-function deactivatePage(defaultPages, setDefaultPages, input) {
+function deactivatePage(
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
+) {
   const copyDefault = [...defaultPages];
 
   for (let x = 0; x < copyDefault.length; x++) {
@@ -18,7 +29,7 @@ function deactivatePage(defaultPages, setDefaultPages, input) {
   setDefaultPages(copyDefault);
 }
 
-function checkIfBonusPresent(navItems) {
+function checkIfBonusPresent(navItems: INavItem[]) {
   const copyNav = [...navItems];
   let present = false;
   for (let x = 0; x < copyNav.length; x++) {
@@ -31,10 +42,10 @@ function checkIfBonusPresent(navItems) {
 }
 
 function activateBonusPage(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
@@ -58,11 +69,11 @@ function activateBonusPage(
 
 // this function handles a LOT. However, I can't chain state updates.
 function lastItemWithBonus(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems,
-  input
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
@@ -98,11 +109,11 @@ function lastItemWithBonus(
 // we want to close bonus and deactivate it.
 // we then want to re-enable all active pages
 function closeBonusActive(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems,
-  input
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
@@ -133,7 +144,11 @@ function closeBonusActive(
   setDefaultPages(copyDefault);
 }
 
-function closeBonusInactive(navItems, setNavItems, input) {
+function closeBonusInactive(
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
+) {
   const copyNav = [...navItems];
 
   // filter bonus out of the nav bar
@@ -144,11 +159,11 @@ function closeBonusInactive(navItems, setNavItems, input) {
 
 // close last window if it is only the bonus item
 function closeOnlyActiveBonus(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems,
-  input
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
@@ -173,11 +188,11 @@ function closeOnlyActiveBonus(
 
 // only bonus is open, need to only close it
 function onlyBonusOpenClose(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems,
-  input
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
@@ -197,11 +212,11 @@ function onlyBonusOpenClose(
 
 // two pages open, bonus is inactive, close other page, set bonus
 function closeNormalSetBonus(
-  defaultPages,
-  setDefaultPages,
-  navItems,
-  setNavItems,
-  input
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyNav = [...navItems];
   const copyDefault = [...defaultPages];
