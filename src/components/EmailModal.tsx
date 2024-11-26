@@ -1,32 +1,33 @@
 import WindowRestoreIcon from "../assets/bwicons/windowrestore.svg?react";
 import LineIcon from "../assets/bwicons/linesvg.svg?react";
 import Cross from "../assets/bwicons/cross2.svg?react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "../styles/emailmodal.css";
+import { GlobalContext, IGlobalContext } from "../App";
 
-function EmailModal(props) {
+function EmailModal() {
+  const globalContext: IGlobalContext = useContext(GlobalContext);
+
   const handleCloseModal = () => {
-    props.setEmailModal(false);
+    globalContext.setEmailModal(false);
   };
 
   // escape to close modal
   useEffect(() => {
-    function handleEscClick(e) {
+    function handleEscClick(e: KeyboardEvent) {
       if (e.code === "Escape") {
-        props.setEmailModal(false);
+        globalContext.setEmailModal(false);
       }
     }
 
     document.addEventListener("keydown", handleEscClick);
 
+    // cleanup removes listener
     return () => document.removeEventListener("keydown", handleEscClick);
   }, []);
 
   return (
-    <div
-      className={`modal ${props.emailModal}`}
-      onKeyDown={(e) => handleKeyPress(e)}
-    >
+    <div className={`modal ${globalContext.emailModal}`}>
       <div className="modalContent email">
         <div className="modalTopBar">
           <button className="modalBtn">

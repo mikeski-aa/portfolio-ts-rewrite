@@ -1,4 +1,11 @@
-import { createContext, useRef, useState, useEffect } from "react";
+import {
+  createContext,
+  useRef,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import "./App.css";
 import VertBar from "../src/components/VertBar";
 
@@ -18,7 +25,7 @@ import NewProjectComp from "../src/components/new_main_page/NewProjectsComp";
 import NewContactMe from "../src/components/new_main_page/NewContactMe";
 import BackgroundParticles from "../src/components/BackgroundParticles";
 
-interface INavItem {
+export interface INavItem {
   name: string;
   active: boolean;
   shortname: string;
@@ -28,23 +35,23 @@ interface INavItem {
   disabled: boolean;
 }
 
-interface IGlobalContext {
+export interface IGlobalContext {
   navItems: INavItem[];
-  setNavItems: () => void;
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>;
   sidebarStat: boolean;
-  setSidebarStat: () => void;
-  setCurrentPage: () => void;
-  setCpage: () => void;
+  setSidebarStat: Dispatch<SetStateAction<boolean>>;
+  setCurrentPage: Dispatch<SetStateAction<string>>;
+  setCpage: Dispatch<SetStateAction<string>>;
   activePage: string;
   defaultPages: INavItem[];
-  setDefaultPages: () => void;
-  setBonusPage: () => void;
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>;
+  setBonusPage: Dispatch<SetStateAction<boolean>>;
   bonusPage: boolean;
-  setActivePage: () => void;
+  setActivePage: Dispatch<SetStateAction<string>>;
   emailModal: boolean;
-  setEmailModal: () => void;
+  setEmailModal: Dispatch<SetStateAction<boolean>>;
   dontRun: boolean;
-  setDontRun: () => void;
+  setDontRun: Dispatch<SetStateAction<boolean>>;
 }
 
 export const GlobalContext: any = createContext<IGlobalContext | undefined>(
@@ -318,7 +325,7 @@ function App() {
               setDontRun,
             }}
           >
-            <EmailModal emailModal={emailModal} setEmailModal={setEmailModal} />
+            <EmailModal />
             <div className="pageTest">
               <VertBar />
               <div
