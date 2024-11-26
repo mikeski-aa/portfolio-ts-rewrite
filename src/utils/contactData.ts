@@ -1,3 +1,8 @@
+export interface IContactInterface {
+  name: string;
+  link: string;
+}
+
 const contact = [
   {
     name: "Email",

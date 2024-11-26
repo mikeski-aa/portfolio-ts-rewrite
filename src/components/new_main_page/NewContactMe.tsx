@@ -1,4 +1,4 @@
-import contact from "../../utils/contactData";
+import contact, { IContactInterface } from "../../utils/contactData";
 import NewContactBox from "./NewContactBox";
 import "../../styles/new_main_design/newcontactme.css";
 
@@ -12,8 +12,8 @@ function NewContactMe() {
         </div>
       </div>
       <div className="contactMeBtnDiv">
-        {contact.map((item, index) => (
-          <NewContactBox key={index} name={item.name} />
+        {contact.map((item: IContactInterface, index) => (
+          <NewContactBox key={index} itemName={item.name} />
         ))}
       </div>
     </div>

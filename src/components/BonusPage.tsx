@@ -4,7 +4,7 @@ import mmbCloseGif from "../assets/gif/mmbclose.gif";
 import terminalTyping from "../assets/gif/terminaltyping.gif";
 import { useEffect } from "react";
 
-function BonusPage(props) {
+function BonusPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

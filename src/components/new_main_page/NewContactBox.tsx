@@ -7,25 +7,33 @@ import {
   handleLinkedInClick,
 } from "../../utils/contactFunctions";
 
-function NewContactBox(props) {
-  const icons = {
+export interface IIconsJSX {
+  [key: string]: JSX.Element;
+}
+
+export interface Ilinks {
+  [key: string]: () => void;
+}
+
+function NewContactBox({ itemName }: { itemName: string }) {
+  const icons: IIconsJSX = {
     LinkedIn: <LinkedIn className="newContactIcon" />,
     GitHub: <Github className="newContactIcon" />,
     Email: <Email className="newContactIcon" />,
   };
 
-  const links = {
+  const links: Ilinks = {
     LinkedIn: handleLinkedInClick,
     GitHub: handleGithubClick,
     Email: handleEmailClick,
   };
 
-  const renderedIcon = icons[props.name];
-  const activeLink = links[props.name];
+  const renderedIcon = icons[itemName];
+  const activeLink = links[itemName];
   return (
     <button className="newContactBox" onClick={activeLink}>
       {renderedIcon ? renderedIcon : null}
-      {props.name}
+      {itemName}
     </button>
   );
 }

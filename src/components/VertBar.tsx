@@ -3,17 +3,13 @@ import FilesIcon from "../assets/bwicons/filealt.svg?react";
 import GithubIcon from "../assets/bwicons/github2.svg?react";
 import LinkedIn from "../assets/bwicons/linkedin.svg?react";
 import Email from "../assets/bwicons/email.svg?react";
-import WindowRestoreIcon from "../assets/bwicons/windowrestore.svg?react";
-import LineIcon from "../assets/bwicons/linesvg.svg?react";
-import Cross from "../assets/bwicons/cross2.svg?react";
-import Explorer from "./Explorer";
-import { useState, useContext, useEffect } from "react";
-import { GlobalContext } from "../App";
+import Explorer from "../components/Explorer";
+import { useState, useContext } from "react";
+import { GlobalContext, IGlobalContext } from "../App";
 
 function VertBar() {
-  const [showExp, setShowExp] = useState(true);
-  const [emailModal, setEmailModal] = useState(false);
-  const globalContext = useContext(GlobalContext);
+  const [showExp, setShowExp] = useState<boolean>(true);
+  const globalContext: IGlobalContext = useContext(GlobalContext);
 
   const handleExplorerClick = () => {
     if (showExp) {
@@ -37,7 +33,6 @@ function VertBar() {
   };
 
   const handleEmailClick = () => {
-    // window.open("mailto:dev.m.nowak@gmail.com");
     globalContext.setEmailModal(true);
   };
 
