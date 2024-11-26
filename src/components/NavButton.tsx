@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext, SyntheticEvent } from "react";
 import "../styles/navbutton.css";
 import { GlobalContext, IGlobalContext, INavItem } from "../App";
 import ReactIconComponent from "../assets/icons/react.svg?react";
@@ -28,13 +28,13 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   const globalContext: IGlobalContext = useContext(GlobalContext);
 
   // handle setting index data when tab is beggining to be dragged
-  const handleDragStart = (e, index) => {
-    e.dataTransfer.setData("index", index);
+  const handleDragStart = (e: React.DragEvent, index: number) => {
+    e.dataTransfer.setData("index", index.toString());
   };
 
   // handle drop - set new index, splice array replacing item positions.
   // set new state to update the layout
-  const handleDrop = (e, targetIndex) => {
+  const handleDrop = (e: React.DragEvent, targetIndex: number) => {
     e.preventDefault();
     const sourceIndex = parseInt(e.dataTransfer.getData("index"));
     const newItems = [...globalContext.navItems];
@@ -43,12 +43,12 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   };
 
   // disable default behaviour, otherwise drag won't work
-  const handleDragOver = (e) => {
+  const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
   };
 
   // handle mouseover enter and exit, for toggling display of close button
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = () => {
     setMouseOver(true);
   };
 
@@ -94,7 +94,6 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
           );
         }
       } else {
-        // console.log("more than 2 items in nav");
         // what needs to happen:
         // deactivate the page
         // disable the page
@@ -110,12 +109,10 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
         );
       }
     } else {
-      // console.log("less than 2 items detected - warning!");
       if (checkIfBonusPresent(globalContext.navItems)) {
         if (checkIfBonusActiveNow(globalContext.defaultPages)) {
           if (globalContext.navItems.length === 2) {
             if (navItem.name != "bonusPage.js") {
-              // console.log("bonusPage not clicked");
               closeNormalSetBonus(
                 globalContext.defaultPages,
                 globalContext.setDefaultPages,
@@ -124,7 +121,6 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
                 navItem.name
               );
             } else {
-              // console.log("bonus active & present & 2< windows open");
               closeOnlyActiveBonus(
                 globalContext.defaultPages,
                 globalContext.setDefaultPages,
@@ -141,11 +137,10 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
               globalContext.setNavItems,
               navItem.name
             );
-            // console.log("only bonus active");
+
             globalContext.setActivePage("zero");
           }
         } else {
-          // console.log("bonus present but inactive");
           lastItemWithBonus(
             globalContext.defaultPages,
             globalContext.setDefaultPages,
@@ -158,7 +153,6 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
           globalContext.setActivePage("four");
         }
       } else {
-        // console.log("bonus is not present all good");
         manyPagesCloseOne(
           globalContext.navItems,
           globalContext.setNavItems,
@@ -175,30 +169,13 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   };
 
   // rewriting click handler here...
-  const handleClickNav = (e) => {
-    // if (typeof e.target.innerText === "undefined") {
-    //   return console.log("undefined val");
-    // } else if (e.target.innerText === "") {
-    //   return console.log("VALUE IS EMPTY!!!!!");
-    // } else {
-    //   console.log("defined val");
-    //   return console.log(e.target.innerText);
-    // }
+  const handleClickNav = (e: SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
 
-    // alert(e.target.innerText);
-    // console.log(iconClicked);
-    if (e.target.innerText === "bonusPage.js" || e.target.innerText === "") {
-      // console.log("navLogic logRef 1");
-      // console.log("bonusPage clicked");
+    if (target.innerText === "bonusPage.js" || target.innerText === "") {
       if (checkIfBonusActiveNow(globalContext.defaultPages)) {
-        // console.log("navLogic logRef 2");
-        // console.log("bonus is active");
-        // console.log("error here?");
-        // setIconClicked(false);
         return null;
       } else {
-        // console.log("navLogic logRef 3");
-        // console.log("bonus is inactive");
         focusBonusManyPages(
           globalContext.navItems,
           globalContext.setNavItems,
@@ -208,14 +185,9 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
         globalContext.setCurrentPage("bonusPage.js");
         globalContext.setCpage("bonusPage");
         globalContext.setActivePage("four");
-        // setIconClicked(false);
       }
     } else {
-      // console.log("navLogic logRef 4");
-      // console.log("normal page clicked");
       if (checkIfBonusActiveNow(globalContext.defaultPages)) {
-        // console.log("navLogic logRef 5");
-        // console.log("bonus is active");
         disableBonusSetNewActive(
           globalContext.navItems,
           globalContext.setNavItems,
@@ -223,7 +195,7 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
           globalContext.setDefaultPages,
           navItem.shortname
         );
-        // alert("setting don't run: current dont run:" + globalContext.dontRun);
+
         globalContext.setDontRun(true);
         setTimeout(() => {
           notSmoothScroll(navItem.refLink);
@@ -232,8 +204,6 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
         globalContext.setCpage(navItem.shortname);
         globalContext.setDontRun(false);
       } else {
-        // console.log("navLogic logRef 6");
-
         smoothScroll(navItem.refLink);
       }
     }
@@ -243,25 +213,17 @@ function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   // prevent default behaviour (showing of the scroll circle only when mmb is clicked)
   // only tested on chrome / windows.
   // need to test on other OS somehow
-  const handleKeyDown = (e: MouseEvent) => {
-    // console.log(e.which);
-    // console.log(e.button);
+  const handleKeyDown = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.button === 1) {
       e.preventDefault();
       handleCloseRewrite();
     }
   };
 
-  // const handleIconClick = () => {
-  //   console.log("icon clicked");
-  //   console.log(iconClicked);
-  //   setIconClicked(true);
-  // };
-
   return (
     <div
       className={`navBtnDiv ${navItem.active}`}
-      onMouseEnter={(e) => handleMouseEnter(e)}
+      onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
     >
       <button
