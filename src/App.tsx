@@ -1,31 +1,32 @@
-import { useContext, createContext, useRef, useState, useEffect } from "react";
+import { createContext, useRef, useState, useEffect } from "react";
 import "./App.css";
-import VertBar from "./components/VertBar";
+import VertBar from "../src/components/VertBar";
+
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import { useInView } from "../../src/hooks/useInView";
+import Footer from "../src/components/Footer";
+import { useInView } from "../src/hooks/useInView";
 import { helperScrollStateUpdate } from "./utils/helperStateUpdates";
-import BonusPage from "./components/BonusPage";
-import TerminalBox from "./components/TerminalBox";
-import AllTabsClosed from "./components/AllTabsClosed";
-import { disableAllPages, enablAllPages } from "./utils/helperStateUpdates";
-import EmailModal from "./components/EmailModal";
+import BonusPage from "../src/components/BonusPage";
+import TerminalBox from "../src/components/TerminalBox";
+import AllTabsClosed from "../src/components/AllTabsClosed";
+import EmailModal from "../src/components/AllTabsClosed";
 import NewMainPageDesign from "./components/new_main_page/NewMainPageDesign";
 import NewAboutComp from "./components/new_main_page/NewAboutComponent";
 import skills from "./utils/skillsData";
 import NewSkillBox from "./components/new_main_page/NewSkillBox";
 import NewProjectComp from "./components/new_main_page/NewProjectsComp";
 import NewContactMe from "./components/new_main_page/NewContactMe";
-import BackgroundParticles from "./components/BackgroundParticles";
+
+import BackgroundParticles from "../src/components/BackgroundParticles";
 
 // import "../src/styles/netlifycssfix.css";
 
-export const GlobalContext = createContext();
+export const GlobalContext: any = createContext<any>(undefined);
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("About_me.jsx");
-  const [cPage, setCpage] = useState("About_me");
-  const [activePage, setActivePage] = useState(0);
+  const [currentPage, setCurrentPage] = useState<string>("About_me.jsx");
+  const [cPage, setCpage] = useState<string>("About_me");
+  const [activePage, setActivePage] = useState<string>("zero");
   const [sidebarStat, setSidebarStat] = useState(true);
   const contactRef = useRef(null);
   const projectsRef = useRef(null);
@@ -34,7 +35,6 @@ function App() {
   const [bonusPage, setBonusPage] = useState(false);
   const [emailModal, setEmailModal] = useState(false);
   const [dontRun, setDontRun] = useState(false);
-  const [displayLegacy, setDisplayLegacy] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const hasPageBeenRendered = useRef(false);
@@ -222,7 +222,7 @@ function App() {
           ref={skillsRef}
         >
           <div className="scrollHolder">
-            {skills.map((item, index) => (
+            {skills.map((item: any, index: number) => (
               <NewSkillBox key={index} name={item.name} />
             ))}
           </div>
