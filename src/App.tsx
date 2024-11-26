@@ -16,31 +16,57 @@ import skills from "../src/utils/skillsData";
 import NewSkillBox from "../src/components/new_main_page/NewSkillBox";
 import NewProjectComp from "../src/components/new_main_page/NewProjectsComp";
 import NewContactMe from "../src/components/new_main_page/NewContactMe";
-
 import BackgroundParticles from "../src/components/BackgroundParticles";
 
-// import "../src/styles/netlifycssfix.css";
+interface INavItem {
+  name: string;
+  active: boolean;
+  shortname: string;
+  trueIndex: number;
+  refLink: React.RefObject<HTMLDivElement> | null;
+  visible: boolean;
+  disabled: boolean;
+}
 
-export const GlobalContext: any = createContext<any>(undefined);
+interface IGlobalContext {
+  navItems: INavItem[];
+  setNavItems: () => void;
+  sidebarStat: boolean;
+  setSidebarStat: () => void;
+  setCurrentPage: () => void;
+  setCpage: () => void;
+  activePage: string;
+  defaultPages: INavItem[];
+  setDefaultPages: () => void;
+  setBonusPage: () => void;
+  bonusPage: boolean;
+  setActivePage: () => void;
+  emailModal: boolean;
+  setEmailModal: () => void;
+  dontRun: boolean;
+  setDontRun: () => void;
+}
+
+export const GlobalContext: any = createContext<IGlobalContext>(undefined);
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>("About_me.jsx");
   const [cPage, setCpage] = useState<string>("About_me");
   const [activePage, setActivePage] = useState<string>("zero");
-  const [sidebarStat, setSidebarStat] = useState(true);
-  const contactRef = useRef(null);
-  const projectsRef = useRef(null);
-  const skillsRef = useRef(null);
-  const aboutRef = useRef(null);
-  const [bonusPage, setBonusPage] = useState(false);
-  const [emailModal, setEmailModal] = useState(false);
-  const [dontRun, setDontRun] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [sidebarStat, setSidebarStat] = useState<boolean>(true);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const [bonusPage, setBonusPage] = useState<boolean>(false);
+  const [emailModal, setEmailModal] = useState<boolean>(false);
+  const [dontRun, setDontRun] = useState<boolean>(false);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
   const hasPageBeenRendered = useRef(false);
 
   // this could be rewritten. we dont need long and short name. total redundancy
-  const [navItems, setNavItems] = useState([
+  const [navItems, setNavItems] = useState<INavItem[]>([
     {
       name: "About_me.jsx",
       active: true,
@@ -82,7 +108,7 @@ function App() {
   // this is a temporary fix, which might become a pernament fix if I don't figure out a better solution
   // I need a "default" directory of pages, however, with how refs are implemented, I cannot store this in an outside file
   // this state is required in order to restore nav buttons and other items when they become closed
-  const [defaultPages, setDefaultPages] = useState([
+  const [defaultPages, setDefaultPages] = useState<INavItem[]>([
     {
       name: "About_me.jsx",
       active: false,
@@ -125,6 +151,7 @@ function App() {
       active: false,
       shortname: "bonusPage",
       trueIndex: 4,
+      refLink: null,
       visible: false,
       disabled: true,
     },
