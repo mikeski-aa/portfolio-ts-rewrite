@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import "../styles/navbutton.css";
-import { GlobalContext, IGlobalContext } from "../App";
+import { GlobalContext, IGlobalContext, INavItem } from "../App";
 import ReactIconComponent from "../assets/icons/react.svg?react";
 import CrossIcon from "../assets/bwicons/cross2.svg?react";
 import { smoothScroll, notSmoothScroll } from "../utils/helperStateUpdates";
@@ -23,7 +23,7 @@ import {
   focusBonusManyPages,
 } from "../utils/explorerHelperFunctions";
 
-function NavButton(props) {
+function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   const [mouseOver, setMouseOver] = useState(false);
   const globalContext: IGlobalContext = useContext(GlobalContext);
 
@@ -73,7 +73,7 @@ function NavButton(props) {
   const handleCloseRewrite = () => {
     // console.log("closeClicked");
     if (globalContext.navItems.length > 2) {
-      if (props.name === "bonusPage.js") {
+      if (navItem.name === "bonusPage.js") {
         // console.log("bonusPage close clicked");
         if (checkIfBonusActiveNow(globalContext.defaultPages)) {
           // console.log("BONUS IS ACTIVE");
@@ -83,14 +83,14 @@ function NavButton(props) {
             globalContext.setDefaultPages,
             globalContext.navItems,
             globalContext.setNavItems,
-            props.name
+            navItem.name
           );
         } else {
           // console.log("bonus is inactive");
           closeBonusInactive(
             globalContext.navItems,
             globalContext.setNavItems,
-            props.name
+            navItem.name
           );
         }
       } else {
@@ -101,12 +101,12 @@ function NavButton(props) {
         manyPagesCloseOne(
           globalContext.navItems,
           globalContext.setNavItems,
-          props.name
+          navItem.name
         );
         deactivatePage(
           globalContext.defaultPages,
           globalContext.setDefaultPages,
-          props.name
+          navItem.name
         );
       }
     } else {
@@ -114,14 +114,14 @@ function NavButton(props) {
       if (checkIfBonusPresent(globalContext.navItems)) {
         if (checkIfBonusActiveNow(globalContext.defaultPages)) {
           if (globalContext.navItems.length === 2) {
-            if (props.name != "bonusPage.js") {
+            if (navItem.name != "bonusPage.js") {
               // console.log("bonusPage not clicked");
               closeNormalSetBonus(
                 globalContext.defaultPages,
                 globalContext.setDefaultPages,
                 globalContext.navItems,
                 globalContext.setNavItems,
-                props.name
+                navItem.name
               );
             } else {
               // console.log("bonus active & present & 2< windows open");
@@ -130,7 +130,7 @@ function NavButton(props) {
                 globalContext.setDefaultPages,
                 globalContext.navItems,
                 globalContext.setNavItems,
-                props.name
+                navItem.name
               );
             }
           } else {
@@ -139,7 +139,7 @@ function NavButton(props) {
               globalContext.setDefaultPages,
               globalContext.navItems,
               globalContext.setNavItems,
-              props.name
+              navItem.name
             );
             // console.log("only bonus active");
             globalContext.setActivePage("zero");
@@ -151,7 +151,7 @@ function NavButton(props) {
             globalContext.setDefaultPages,
             globalContext.navItems,
             globalContext.setNavItems,
-            props.name
+            navItem.name
           );
           globalContext.setCurrentPage("bonusPage.js");
           globalContext.setCpage("bonusPage");
@@ -162,12 +162,12 @@ function NavButton(props) {
         manyPagesCloseOne(
           globalContext.navItems,
           globalContext.setNavItems,
-          props.name
+          navItem.name
         );
         deactivatePage(
           globalContext.defaultPages,
           globalContext.setDefaultPages,
-          props.name
+          navItem.name
         );
         globalContext.setActivePage("zero");
       }
@@ -221,20 +221,20 @@ function NavButton(props) {
           globalContext.setNavItems,
           globalContext.defaultPages,
           globalContext.setDefaultPages,
-          props.shortname
+          navItem.shortname
         );
         // alert("setting don't run: current dont run:" + globalContext.dontRun);
         globalContext.setDontRun(true);
         setTimeout(() => {
-          notSmoothScroll(props.refLink);
+          notSmoothScroll(navItem.refLink);
         }, 15);
-        globalContext.setCurrentPage(props.name);
-        globalContext.setCpage(props.shortname);
+        globalContext.setCurrentPage(navItem.name);
+        globalContext.setCpage(navItem.shortname);
         globalContext.setDontRun(false);
       } else {
         // console.log("navLogic logRef 6");
 
-        smoothScroll(props.refLink);
+        smoothScroll(navItem.refLink);
       }
     }
   };
@@ -243,7 +243,7 @@ function NavButton(props) {
   // prevent default behaviour (showing of the scroll circle only when mmb is clicked)
   // only tested on chrome / windows.
   // need to test on other OS somehow
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: MouseEvent) => {
     // console.log(e.which);
     // console.log(e.button);
     if (e.button === 1) {
@@ -260,21 +260,21 @@ function NavButton(props) {
 
   return (
     <div
-      className={`navBtnDiv ${props.active}`}
+      className={`navBtnDiv ${navItem.active}`}
       onMouseEnter={(e) => handleMouseEnter(e)}
-      onMouseLeave={(e) => handleMouseLeave(e)}
+      onMouseLeave={() => handleMouseLeave()}
     >
       <button
-        className={`navBtn ${props.active}`}
+        className={`navBtn ${navItem.active}`}
         data-x="test"
         draggable
         onClick={(e) => handleClickNav(e)}
-        onDragStart={(e) => handleDragStart(e, props.index)}
+        onDragStart={(e) => handleDragStart(e, index)}
         onDragOver={handleDragOver}
-        onDrop={(e) => handleDrop(e, props.index)}
+        onDrop={(e) => handleDrop(e, index)}
         onMouseDown={(e) => handleKeyDown(e)}
       >
-        {props.name === "bonusPage.js" ? (
+        {navItem.name === "bonusPage.js" ? (
           <img
             src={testIcon}
             className="locationIcon"
@@ -283,11 +283,13 @@ function NavButton(props) {
         ) : (
           <ReactIconComponent className="locationIcon" />
         )}
-        <div className="btnTextNavBtn"> {props.name}</div>
+        <div className="btnTextNavBtn"> {navItem.name}</div>
       </button>
       <button
         className={
-          props.active || mouseOver ? "closePageBtn show" : "closePageBtn hide"
+          navItem.active || mouseOver
+            ? "closePageBtn show"
+            : "closePageBtn hide"
         }
         onClick={() => handleCloseRewrite()}
       >

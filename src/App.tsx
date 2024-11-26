@@ -340,12 +340,7 @@ function App() {
                     navItems.length < 1 ? "headtest hidden" : "headtest"
                   }
                 >
-                  <NavBar
-                    currentPage={currentPage}
-                    cPage={cPage}
-                    navItems={navItems}
-                    setNavItems={setNavItems}
-                  />
+                  <NavBar currentPage={currentPage} cPage={cPage} />
                 </div>
                 <div className={`mainCont ${sidebarStat}`}>
                   <BackgroundParticles />
