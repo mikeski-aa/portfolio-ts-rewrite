@@ -3,7 +3,8 @@ import LineIcon from "../assets/bwicons/linesvg.svg?react";
 import Cross from "../assets/bwicons/cross2.svg?react";
 import { useContext, useEffect } from "react";
 import "../styles/emailmodal.css";
-import { GlobalContext, IGlobalContext } from "../App";
+import { GlobalContext } from "../App";
+import { IGlobalContext } from "../interfaces";
 
 function EmailModal() {
   const globalContext: IGlobalContext = useContext(GlobalContext);
