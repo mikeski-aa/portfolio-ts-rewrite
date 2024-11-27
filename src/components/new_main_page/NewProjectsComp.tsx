@@ -1,3 +1,4 @@
+import { IProjects } from "../../interfaces";
 import projects from "../../utils/projectData";
 import NewProjectCard from "./NewProjectCard";
 
@@ -6,19 +7,8 @@ function NewProjectComp() {
     <div className="newSection Projects">
       <div className="newProjectsHeading">Projects</div>
       <div className="newProjectCardsContainer">
-        {projects.map((item, index) => (
-          <NewProjectCard
-            key={index}
-            heading={item.title}
-            text={item.desc}
-            isHosted={item.isHosted}
-            projectLink={item.projectLink}
-            smallPic={item.smallPic}
-            skills={item.tech}
-            type={item.type}
-            feRepo={item.feRepo}
-            beRepo={item.beRepo}
-          />
+        {projects.map((item: IProjects, index: number) => (
+          <NewProjectCard key={index} project={item} />
         ))}
       </div>
       <div className="moreProjectsBtn">
