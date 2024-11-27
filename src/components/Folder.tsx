@@ -3,13 +3,24 @@ import Arrow from "../assets/arrow.svg?react";
 import File from "./File";
 import "../styles/folder.css";
 import { GlobalContext } from "../App";
+import { IGlobalContext } from "../interfaces";
 
-function Folder(props) {
+function Folder({
+  rootName,
+  childOne,
+  childTwo,
+  childThree,
+}: {
+  rootName: string;
+  childOne: string;
+  childTwo: string;
+  childThree: string;
+}) {
   const [rootStat, setFolderStat] = useState(true);
   const [childOneStat, setChildOneStat] = useState(true);
   const [childTwoStat, setChildTwoStat] = useState(true);
   const [childThreeStat, setChildThreeStat] = useState(true);
-  const globalContext = useContext(GlobalContext);
+  const globalContext: IGlobalContext = useContext(GlobalContext);
 
   const handleOuterClick = () => {
     if (rootStat) {
@@ -48,17 +59,17 @@ function Folder(props) {
     <div className="folderDiv">
       <button className="folderBtn root" onClick={handleOuterClick}>
         <Arrow className={`folderChevron ${rootStat}`} />
-        {props.rootName}
+        {rootName}
       </button>
       <div className={`fileList ${rootStat} childOne`}>
         <button className="folderBtn btnOne" onClick={handleChildOne}>
           <Arrow className={`folderChevron ${childOneStat}`} />
-          {props.childOne}
+          {childOne}
         </button>
         <div className={`fileList ${childOneStat} childTwo`}>
           <button className="folderBtn btnTwo" onClick={handleChildTwo}>
             <Arrow className={`folderChevron ${childTwoStat}`} />
-            {props.childTwo}
+            {childTwo}
           </button>
           <div className={`fileList ${childTwoStat} componentList`}>
             {/* {files.map((item, index) => (
@@ -77,7 +88,7 @@ function Folder(props) {
           </div>
           <button className="folderBtn btnThree" onClick={handleChildThree}>
             <Arrow className={`folderChevron ${childThreeStat}`} />
-            {props.childThree}
+            {childThree}
           </button>
           <div className={`fileList ${childThreeStat} componentList`}>
             <File name={"bonusPage"} bonus={true} type=".js" nobonus={false} />
