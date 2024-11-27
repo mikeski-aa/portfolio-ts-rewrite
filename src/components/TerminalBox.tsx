@@ -1,16 +1,15 @@
 import "../styles/terminalbox.css";
-import BracketIcon from "../assets/terminalicons/brackets.svg?react";
 import TrashIcon from "../assets/terminalicons/trash.svg?react";
 import CubeIcon from "../assets/terminalicons/cube-svgrepo-com.svg?react";
 import EllipsisIcon from "../assets/terminalicons/ellipsis.svg?react";
 import PlusIcon from "../assets/terminalicons/pluslargegrey.svg?react";
 import ArrowIcon from "../assets/arrow.svg?react";
 import CrossIcon from "../assets/bwicons/cross2.svg?react";
-import TerminalParagraph from "./TerminalParagraph";
+import TerminalParagraph from "../components/TerminalParagraph";
 import SplitHorizontal from "../assets/bwicons/split-horizontal.svg?react";
-import { useRef, useState } from "react";
+import { SyntheticEvent, useRef, useState } from "react";
 
-function TerminalBox(props) {
+function TerminalBox({ bonusPage }: { bonusPage: boolean }) {
   const [messages, setMessages] = useState([
     "Page loading completed successfully",
     "Terminal initializing...",
@@ -18,12 +17,13 @@ function TerminalBox(props) {
   ]);
   const [input, setInput] = useState("");
   const [active, setActive] = useState(3);
-  const inputRef = useRef(null);
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleInputChange = (e: SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setInput(target.value);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const messageCopy = [...messages];
       messageCopy.push(input);
@@ -32,16 +32,18 @@ function TerminalBox(props) {
     }
   };
 
-  const handleBtnClick = (input) => {
+  const handleBtnClick = (input: number) => {
     setActive(input);
   };
 
   const handleTerminalTextClick = () => {
-    inputRef.current.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
   return (
-    <div className={`terminalDiv ${props.bonusPage}`}>
+    <div className={`terminalDiv ${bonusPage}`}>
       <div className="terminalHeader">
         <div className="terminalLeftBtnDiv">
           <button
@@ -122,7 +124,7 @@ function TerminalBox(props) {
             className="mainTerminalTextbox"
             onClick={handleTerminalTextClick}
           >
-            {messages.map((item, index) => (
+            {messages.map((item: string, index: number) => (
               <TerminalParagraph key={index} text={item} />
             ))}
           </div>
@@ -137,7 +139,6 @@ function TerminalBox(props) {
               maxLength={25}
             ></input>
           </div>
-          {/* <div className="terminalspacer"></div> */}
         </>
       ) : null}
       {active === 4 ? (
