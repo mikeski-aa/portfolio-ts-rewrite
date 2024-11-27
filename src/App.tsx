@@ -1,6 +1,7 @@
 import { createContext, useRef, useState, useEffect } from "react";
 import "./App.css";
 import VertBar from "../src/components/VertBar";
+import "../src/styles/aboutme.css";
 
 import NavBar from "./components/NavBar";
 import Footer from "../src/components/Footer";
