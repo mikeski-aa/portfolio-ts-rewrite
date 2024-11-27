@@ -37,8 +37,6 @@ function App() {
   const [dontRun, setDontRun] = useState<boolean>(false);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
-  const hasPageBeenRendered = useRef(false);
-
   // this could be rewritten. we dont need long and short name. total redundancy
   const [navItems, setNavItems] = useState<INavItem[]>([
     {
