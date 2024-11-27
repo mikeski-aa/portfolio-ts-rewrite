@@ -1,9 +1,9 @@
 import "../styles/explorer.css";
 import Folder from "./Folder";
 
-function Explorer(props) {
+function Explorer({ status }: { status: boolean }) {
   return (
-    <div className={`explorerContainer ${props.status}`}>
+    <div className={`explorerContainer ${status}`}>
       <div className="explorerHeading">Explorer</div>
       <div className="explorerContent">
         <Folder

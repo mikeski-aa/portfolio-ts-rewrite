@@ -5,7 +5,8 @@ import LinkedIn from "../assets/bwicons/linkedin.svg?react";
 import Email from "../assets/bwicons/email.svg?react";
 import Explorer from "../components/Explorer";
 import { useState, useContext } from "react";
-import { GlobalContext, IGlobalContext } from "../App";
+import { GlobalContext } from "../App";
+import { IGlobalContext } from "../interfaces";
 
 function VertBar() {
   const [showExp, setShowExp] = useState<boolean>(true);
