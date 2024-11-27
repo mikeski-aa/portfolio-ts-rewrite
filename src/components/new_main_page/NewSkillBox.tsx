@@ -11,9 +11,10 @@ import VscodeIcon from "../../assets/bwicons/vscodeicon.svg?react";
 import JestIcon from "../../assets/bwicons/jesticon.svg?react";
 import GitIcon from "../../assets/bwicons/github2.svg?react";
 import TsIcon from "../../assets/bwicons/typescript.svg?react";
+import { IIconsJSX } from "../../interfaces";
 
-function NewSkillBox(props) {
-  const icons = {
+function NewSkillBox({ name }: { name: string }) {
+  const icons: IIconsJSX = {
     CSS: <CssIcon className="newSkillIcon" />,
     HTML: <HtmlIcon className="newSkillIcon" />,
     JavaScript: <JsIcon className="newSkillIcon" />,
@@ -29,13 +30,13 @@ function NewSkillBox(props) {
     TypeScript: <TsIcon className="newSkillIcon" />,
   };
 
-  const renderedIcon = icons[props.name];
+  const renderedIcon = icons[name];
 
   return (
     <div className="newSkillBoxContainer">
       {renderedIcon ? renderedIcon : null}
       <div className="newSkillText">
-        {props.name === "VSCode" ? "Visual Studio Code" : props.name}
+        {name === "VSCode" ? "Visual Studio Code" : name}
       </div>
     </div>
   );
