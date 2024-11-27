@@ -11,6 +11,7 @@ import NewContactMe from "./NewContactMe";
 import desktopShowcase from "../../assets/gif/desktopShowcase.gif";
 import terminalShowcase from "../../assets/gif/terminalShowcase.gif";
 import BackgroundParticles from "../BackgroundParticles";
+import { IProjects } from "../../interfaces";
 
 function NewMainPageDesign() {
   // writing out the basic layout before breaking it down into own compoenents and styling individually
@@ -54,19 +55,8 @@ function NewMainPageDesign() {
       <div className="newSection Projects">
         <div className="newProjectsHeading">Projects</div>
         <div className="newProjectCardsContainer">
-          {projects.map((item, index) => (
-            <NewProjectCard
-              key={index}
-              heading={item.title}
-              text={item.desc}
-              isHosted={item.isHosted}
-              projectLink={item.projectLink}
-              smallPic={item.smallPic}
-              skills={item.tech}
-              type={item.type}
-              feRepo={item.feRepo}
-              beRepo={item.beRepo}
-            />
+          {projects.map((item: IProjects, index: number) => (
+            <NewProjectCard key={index} project={item} />
           ))}
         </div>
         <div className="moreProjectsBtn">

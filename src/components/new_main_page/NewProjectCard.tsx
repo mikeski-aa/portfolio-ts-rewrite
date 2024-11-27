@@ -3,8 +3,9 @@ import "../../styles/new_main_design/newprojectcard.css";
 import NewSkillBoxForCard from "./NewSkillBoxForCard";
 import Internet from "../../assets/bwicons/internet.svg?react";
 import Github from "../../assets/bwicons/github2.svg?react";
+import { IProjects, ITechStack } from "../../interfaces";
 
-function NewProjectCard(props) {
+function NewProjectCard({ project }: { project: IProjects }) {
   const [showDesc, setShowDesc] = useState(false);
 
   const handleMouseEnter = () => {
@@ -23,27 +24,27 @@ function NewProjectCard(props) {
     >
       {/* <div className="newCardHeading">{props.heading}</div> */}
       <div className={`newProjectDesc ${showDesc}`}>
-        <p className="projectHeading">{props.heading}</p>
-        <p className="projText">{props.text}</p>
+        <p className="projectHeading">{project.title}</p>
+        <p className="projText">{project.desc}</p>
         <div className="projectLinksDiv">
           <button
             className="btnCard"
-            onClick={() => window.open(props.projectLink, "_blank")}
+            onClick={() => window.open(project.projectLink, "_blank")}
           >
             <Internet className="projectLinkIcon" />
             Project site
           </button>
           <button
             className="btnCard"
-            onClick={() => window.open(props.feRepo, "_blank")}
+            onClick={() => window.open(project.feRepo, "_blank")}
           >
             <Github className="projectLinkIcon" />
             Frontend Repo
           </button>
-          {props.type != "Fullstack" ? null : (
+          {project.type != "Fullstack" ? null : (
             <button
               className="btnCard"
-              onClick={() => window.open(props.beRepo, "_blank")}
+              onClick={() => window.open(project.beRepo, "_blank")}
             >
               <Github className="projectLinkIcon" />
               Backend Repo
@@ -54,13 +55,13 @@ function NewProjectCard(props) {
       <div className="newProjectImg">
         <img
           className="cardImgSmall"
-          src={props.smallPic}
+          src={project.smallPic}
           alt="project preview image"
           loading="lazy"
         />
       </div>
       <div className="techCard">
-        {props.skills.map((item, index) => (
+        {project.tech.map((item: ITechStack, index: number) => (
           <NewSkillBoxForCard key={index} name={item.name} />
         ))}
       </div>
