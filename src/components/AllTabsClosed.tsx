@@ -4,7 +4,7 @@ import HowToGif from "../assets/gif/howto.gif";
 function AllTabsClosed() {
   return (
     <div className="allTabsClosed">
-      {/* <div className="reopenContent">
+      <div className="reopenContent">
         <div className="textReopen">
           Looks like you're testing out all of the{" "}
           <span className="fcnStyle">functionality</span>! Nice! Here's how to
@@ -16,7 +16,7 @@ function AllTabsClosed() {
           loading="lazy"
           alt="functionality gif"
         ></img>
-      </div> */}
+      </div>
     </div>
   );
 }

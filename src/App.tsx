@@ -9,7 +9,7 @@ import { helperScrollStateUpdate } from "../src/utils/helperStateUpdates";
 import BonusPage from "../src/components/BonusPage";
 import TerminalBox from "../src/components/TerminalBox";
 import AllTabsClosed from "../src/components/AllTabsClosed";
-import EmailModal from "../src/components/AllTabsClosed";
+import EmailModal from "../src/components/EmailModal";
 import NewMainPageDesign from "../src/components/new_main_page/NewMainPageDesign";
 import NewAboutComp from "../src/components/new_main_page/NewAboutComponent";
 import skills from "../src/utils/skillsData";
@@ -19,9 +19,26 @@ import NewContactMe from "../src/components/new_main_page/NewContactMe";
 import BackgroundParticles from "../src/components/BackgroundParticles";
 import { IGlobalContext, INavItem } from "./interfaces";
 
-export const GlobalContext: any = createContext<IGlobalContext | undefined>(
-  undefined
-);
+const defaultContextValue: IGlobalContext = {
+  navItems: [],
+  setNavItems: () => [],
+  sidebarStat: true,
+  setSidebarStat: () => false,
+  setCurrentPage: () => "",
+  setCpage: () => "",
+  activePage: "zero",
+  defaultPages: [],
+  setDefaultPages: () => [],
+  setBonusPage: () => false,
+  bonusPage: false,
+  setActivePage: () => "",
+  emailModal: false,
+  setEmailModal: () => false,
+  dontRun: false,
+  setDontRun: () => false,
+};
+
+export const GlobalContext = createContext<IGlobalContext>(defaultContextValue);
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>("About_me.jsx");
