@@ -3,7 +3,7 @@ import Arrow from "../assets/arrow.svg?react";
 import File from "./File";
 import "../styles/folder.css";
 import { GlobalContext } from "../App";
-import { IGlobalContext } from "../interfaces";
+import { IBonusItemPage, IGlobalContext, INavItem } from "../interfaces";
 
 function Folder({
   rootName,
@@ -54,6 +54,16 @@ function Folder({
     }
   };
 
+  const bonusPageItems: INavItem = {
+    shortname: "bonusPage",
+    name: "bonuspagexdd",
+    active: false,
+    trueIndex: 99,
+    refLink: null,
+    visible: false,
+    disabled: false,
+  };
+
   // I am thinking this component could be re-written using recursive components
   return (
     <div className="folderDiv">
@@ -75,14 +85,13 @@ function Folder({
             {/* {files.map((item, index) => (
               <File key={index} name={item.name} type=".jsx" />
             ))} */}
-            {globalContext.defaultPages.map((item, index) => (
+            {globalContext.defaultPages.map((item: INavItem, index: number) => (
               <File
                 key={index}
-                name={item.shortname}
-                longname={item.name}
+                file={item}
                 type=".jsx"
                 nobonus={true}
-                refLink={item.refLink}
+                bonus={false}
               />
             ))}
           </div>
@@ -91,7 +100,12 @@ function Folder({
             {childThree}
           </button>
           <div className={`fileList ${childThreeStat} componentList`}>
-            <File name={"bonusPage"} bonus={true} type=".js" nobonus={false} />
+            <File
+              file={bonusPageItems}
+              type=".js"
+              nobonus={false}
+              bonus={true}
+            />
           </div>
         </div>
       </div>

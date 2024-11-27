@@ -57,3 +57,8 @@ export interface IProjects {
 export interface ITechStack {
   name: string;
 }
+
+export interface IBonusItemPage {
+  shortname: string;
+  bonus: boolean;
+}

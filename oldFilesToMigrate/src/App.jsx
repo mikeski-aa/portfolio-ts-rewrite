@@ -1,9 +1,5 @@
 import { useContext, createContext, useRef, useState, useEffect } from "react";
 import "./App.css";
-import AboutMe from "./components/AboutMe";
-import MyProjects from "./components/MyProjects";
-import MySkills from "./components/MySkills";
-import ContactMe from "./components/ContactMe";
 import VertBar from "./components/VertBar";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";

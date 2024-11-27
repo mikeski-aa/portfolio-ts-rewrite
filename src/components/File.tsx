@@ -3,11 +3,7 @@ import ReactIcon from "../assets/bwicons/react.svg?react";
 import JSIcon from "../assets/bwicons/yellowjs.svg?react";
 import { GlobalContext } from "../App";
 import { useContext } from "react";
-import {
-  helperClickStateUpdate,
-  smoothScroll,
-  notSmoothScroll,
-} from "../utils/helperStateUpdates";
+import { smoothScroll, notSmoothScroll } from "../utils/helperStateUpdates";
 
 import {
   checkPageIsOpen,
@@ -19,13 +15,23 @@ import {
   disableBonusSetNewActive,
   addNewPageWithBonus,
 } from "../utils/explorerHelperFunctions";
+import { IGlobalContext, INavItem } from "../interfaces";
 
-function File(props) {
-  const globalContext = useContext(GlobalContext);
-  const name = props.name + `.jsx`;
+function File({
+  file,
+  type,
+  nobonus,
+  bonus,
+}: {
+  file: INavItem;
+  type: string;
+  nobonus: boolean;
+  bonus: boolean;
+}) {
+  const globalContext: IGlobalContext = useContext(GlobalContext);
 
   // prevent rendering of bonus in components folder
-  if (props.nobonus && props.name === "bonusPage") {
+  if (nobonus && file.shortname === "bonusPage") {
     return null;
   }
 
@@ -41,11 +47,11 @@ function File(props) {
 
   const handleItemClickRewrite = () => {
     // console.log(globalContext.defaultPages);
-    if (props.name === "bonusPage") {
+    if (file.shortname === "bonusPage") {
       // console.log("bonus page clicked");
       // console.log("fileLogic logRef 1");
 
-      if (checkPageIsOpen(globalContext.navItems, props.name)) {
+      if (checkPageIsOpen(globalContext.navItems, file.shortname)) {
         // on repeat click we set bonus in focus
         // this means we have to disable and deactivate all other pages
         // console.log("bonusPage is open");
@@ -66,10 +72,10 @@ function File(props) {
           addBonusToNavIsEmpty(
             globalContext.defaultPages,
             globalContext.setNavItems,
-            props.name,
+            file.shortname,
             globalContext.navItems
           );
-          if (props.name === "bonusPage") {
+          if (file.shortname === "bonusPage") {
             // console.log("fileLogic logRef 4");
             globalContext.setActivePage("four");
             globalContext.setCurrentPage("bonusPage.js");
@@ -81,7 +87,7 @@ function File(props) {
           addBonusToNavNotEmpty(
             globalContext.defaultPages,
             globalContext.setNavItems,
-            props.name,
+            file.shortname,
             globalContext.navItems
           );
         }
@@ -90,7 +96,7 @@ function File(props) {
       // console.log("normal page clicked");
       // console.log("fileLogic logRef 6");
       // first we need to check if the page already exists or not
-      if (checkPageIsOpen(globalContext.navItems, props.name)) {
+      if (checkPageIsOpen(globalContext.navItems, file.shortname)) {
         // console.log("fileLogic logRef 7");
         if (checkIfBonusActiveNow(globalContext.defaultPages)) {
           // console.log("fileLogic logRef 8");
@@ -101,20 +107,20 @@ function File(props) {
             globalContext.setNavItems,
             globalContext.defaultPages,
             globalContext.setDefaultPages,
-            props.name
+            file.shortname
           );
           setTimeout(() => {
-            notSmoothScroll(props.refLink);
+            notSmoothScroll(file.refLink);
           }, 20);
           // console.log("prop clicked: " + props.name);
-          globalContext.setCurrentPage(props.longname);
-          globalContext.setCpage(props.name);
+          globalContext.setCurrentPage(file.name);
+          globalContext.setCpage(file.shortname);
         } else {
           // console.log("page exists this will scroll now");
           // console.log("fileLogic logRef 9");
           // page exists already.
           // we can scroll to it directly
-          return smoothScroll(props.refLink);
+          return smoothScroll(file.refLink);
         }
       } else {
         // page is not open and  does NOT exist in navItems.
@@ -125,7 +131,7 @@ function File(props) {
           addNewPageWithBonus(
             globalContext.defaultPages,
             globalContext.setNavItems,
-            props.name,
+            file.shortname,
             globalContext.navItems
           );
         } else {
@@ -136,7 +142,7 @@ function File(props) {
           addNewPageToNav(
             globalContext.defaultPages,
             globalContext.setNavItems,
-            props.name,
+            file.shortname,
             globalContext.navItems
           );
         }
@@ -146,17 +152,17 @@ function File(props) {
 
   return (
     <button
-      className={`fileBtn ${props.name} ${globalContext.activePage}`}
+      className={`fileBtn ${file.shortname} ${globalContext.activePage}`}
       onClick={handleItemClickRewrite}
     >
-      {props.bonus ? (
+      {bonus ? (
         <JSIcon className="fileIcon" />
       ) : (
         <ReactIcon className="fileIcon" />
       )}
 
-      {props.name}
-      {props.type}
+      {file.shortname}
+      {type}
     </button>
   );
 }
