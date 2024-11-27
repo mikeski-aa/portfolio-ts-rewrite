@@ -7,7 +7,23 @@ import portfolio from "../assets/project_cards/portfolio.png";
 import storebuddy from "../assets/project_cards/storebuddy.png";
 import tictactoe from "../assets/project_cards/mptictactoe.png";
 
-const projects = [
+export interface IProjects {
+  title: string;
+  desc: string;
+  projectLink: string;
+  feRepo?: string;
+  type: string;
+  smallPic: string;
+  isHosted: boolean;
+  tech: ITechStack[];
+  beRepo?: string;
+}
+
+export interface ITechStack {
+  name: string;
+}
+
+const projects: IProjects[] = [
   {
     title: "Air RB parser",
     desc: `Air RB Parser is an application designed to analyze screenshots from the "Air Realistic Battle" mode in the MMO game "War Thunder" to determine the battle rating (BR) of the user's team's vehicles, thereby revealing whether they are in an "uptier" or "downtier" scenario.
