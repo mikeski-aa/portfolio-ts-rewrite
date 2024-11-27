@@ -1,6 +1,6 @@
 import React, { useState, useContext, SyntheticEvent } from "react";
 import "../styles/navbutton.css";
-import { GlobalContext, IGlobalContext, INavItem } from "../App";
+import { GlobalContext } from "../App";
 import ReactIconComponent from "../assets/icons/react.svg?react";
 import CrossIcon from "../assets/bwicons/cross2.svg?react";
 import { smoothScroll, notSmoothScroll } from "../utils/helperStateUpdates";
@@ -22,6 +22,7 @@ import {
   disableBonusSetNewActive,
   focusBonusManyPages,
 } from "../utils/explorerHelperFunctions";
+import { IGlobalContext, INavItem } from "../interfaces";
 
 function NavButton({ index, navItem }: { index: number; navItem: INavItem }) {
   const [mouseOver, setMouseOver] = useState(false);

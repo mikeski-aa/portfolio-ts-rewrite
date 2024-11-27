@@ -5,7 +5,8 @@ import Arrow from "../assets/arrow.svg?react";
 import "../styles/navbar.css";
 import { useContext } from "react";
 import NavButton from "../components/NavButton";
-import { GlobalContext, IGlobalContext } from "../App";
+import { GlobalContext } from "../App";
+import { IGlobalContext } from "../interfaces";
 
 function NavBar({
   currentPage,
