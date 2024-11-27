@@ -1,9 +1,6 @@
-export interface IContactInterface {
-  name: string;
-  link: string;
-}
+import { IContactInterface } from "../interfaces";
 
-const contact = [
+const contact: IContactInterface[] = [
   {
     name: "Email",
     link: "dev.m.nowak@gmail.com",

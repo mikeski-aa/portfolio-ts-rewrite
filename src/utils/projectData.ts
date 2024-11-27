@@ -6,22 +6,7 @@ import myocrapp from "../assets/project_cards/myocrapp.png";
 import portfolio from "../assets/project_cards/portfolio.png";
 import storebuddy from "../assets/project_cards/storebuddy.png";
 import tictactoe from "../assets/project_cards/mptictactoe.png";
-
-export interface IProjects {
-  title: string;
-  desc: string;
-  projectLink: string;
-  feRepo?: string;
-  type: string;
-  smallPic: string;
-  isHosted: boolean;
-  tech: ITechStack[];
-  beRepo?: string;
-}
-
-export interface ITechStack {
-  name: string;
-}
+import { IProjects } from "../interfaces";
 
 const projects: IProjects[] = [
   {

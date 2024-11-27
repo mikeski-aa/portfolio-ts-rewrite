@@ -6,14 +6,7 @@ import {
   handleGithubClick,
   handleLinkedInClick,
 } from "../../utils/contactFunctions";
-
-export interface IIconsJSX {
-  [key: string]: JSX.Element;
-}
-
-export interface Ilinks {
-  [key: string]: () => void;
-}
+import { IIconsJSX, Ilinks } from "../../interfaces";
 
 function NewContactBox({ itemName }: { itemName: string }) {
   const icons: IIconsJSX = {
