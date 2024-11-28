@@ -92,8 +92,8 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
   {
     title: "Portfolio",
     desc: "Portfolio page is React application, designed to emulate the look and feel of VSCode. Users are able to drag and re-arrange tabs, close them and reopen them, open a bonus page, interact with the terminal.",
-    projectLink: "https://mnowak.netlify.app",
-    feRepo: "https://github.com/mikeski-aa/portfoliosite",
+    projectLink: "https://mnowak-portfolio.netlify.app/",
+    feRepo: "https://github.com/mikeski-aa/portfolio-ts-rewrite",
     type: "Frontend",
     smallPic: portfoliosmall,
     isHosted: true,
