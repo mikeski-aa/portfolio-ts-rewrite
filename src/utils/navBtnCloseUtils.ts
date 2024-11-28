@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { INavItem } from "../App";
+import { INavItem } from "../interfaces";
 
 function manyPagesCloseOne(
   navItems: INavItem[],
@@ -39,32 +39,6 @@ function checkIfBonusPresent(navItems: INavItem[]) {
   }
 
   return present;
-}
-
-function activateBonusPage(
-  defaultPages: INavItem[],
-  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
-  navItems: INavItem[],
-  setNavItems: Dispatch<SetStateAction<INavItem[]>>
-) {
-  const copyNav = [...navItems];
-  const copyDefault = [...defaultPages];
-
-  for (let x = 0; x < copyNav.length; x++) {
-    if (copyNav[x].name === "bonusPage.js") {
-      copyNav[x].active = true;
-    }
-  }
-
-  setNavItems(copyNav);
-
-  for (let x = 0; x < copyDefault.length; x++) {
-    if (copyDefault[x].name === "bonusPage.js") {
-      copyDefault[x].disabled = false;
-    }
-  }
-
-  setDefaultPages(copyDefault);
 }
 
 // this function handles a LOT. However, I can't chain state updates.
