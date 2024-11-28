@@ -1,22 +1,23 @@
-import dmme from "../assets/project_cards/dmme.png";
-import knight from "../assets/project_cards/knightmove.png";
-import odinbook from "../assets/project_cards/odinbook.png";
-import todo from "../assets/project_cards/todo.png";
-import myocrapp from "../assets/project_cards/myocrapp.png";
-import portfolio from "../assets/project_cards/portfolio.png";
-import storebuddy from "../assets/project_cards/storebuddy.png";
-import tictactoe from "../assets/project_cards/mptictactoe.png";
+import storebuddysmall from "../assets/project_cards/storebuddy0.webp";
+import dmmesmall from "../assets/project_cards/dmmesmall.webp";
+import knightsmall from "../assets/project_cards/knightmovesmall.webp";
+import odinbooksmall from "../assets/project_cards/odinbooksmall.webp";
+import todosmall from "../assets/project_cards/todosmall.webp";
+import myocrappsmall from "../assets/project_cards/myocrappsmall.webp";
+import portfoliosmall from "../assets/project_cards/portfoliosmall.webp";
+import tictactoesmall from "../assets/project_cards/mptictactoesmall.webp";
+
 import { IProjects } from "../interfaces";
 
 const projects: IProjects[] = [
   {
-    title: "Air RB parser",
+    title: "OCR / Parser project",
     desc: `Air RB Parser is an application designed to analyze screenshots from the "Air Realistic Battle" mode in the MMO game "War Thunder" to determine the battle rating (BR) of the user's team's vehicles, thereby revealing whether they are in an "uptier" or "downtier" scenario.
 Frontend is written in TypeScript with React. The app utilizes Tesseract.js for Optical Character Recognition (OCR). Data parsing and handling is done with Cheerio and Papa Parse for CSV operations.`,
     projectLink: "https://wt-airrb-check.netlify.app/",
     feRepo: "https://github.com/mikeski-aa/ocr-scoreboard-check",
     type: "Frontend",
-    smallPic: myocrapp,
+    smallPic: myocrappsmall,
     isHosted: true,
     tech: [
       { name: "TypeScript" },
@@ -34,7 +35,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     feRepo: "https://github.com/mikeski-aa/ttt-fe-ts",
     beRepo: "https://github.com/mikeski-aa/websocket-backend",
     type: "Fullstack",
-    smallPic: tictactoe,
+    smallPic: tictactoesmall,
     isHosted: true,
     tech: [
       { name: "TypeScript" },
@@ -54,7 +55,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     feRepo: "https://github.com/mikeski-aa/new-project-fe-ts",
     beRepo: "https://github.com/mikeski-aa/new-project-be",
     type: "Fullstack",
-    smallPic: storebuddy,
+    smallPic: storebuddysmall,
     isHosted: true,
     tech: [
       { name: "TypeScript" },
@@ -75,7 +76,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     feRepo: "https://github.com/mikeski-aa/social-media-frontend",
     beRepo: "https://github.com/mikeski-aa/social-media-backend",
     type: "Fullstack",
-    smallPic: odinbook,
+    smallPic: odinbooksmall,
     isHosted: true,
     tech: [
       { name: "JavaScript" },
@@ -94,10 +95,10 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     projectLink: "https://mnowak.netlify.app",
     feRepo: "https://github.com/mikeski-aa/portfoliosite",
     type: "Frontend",
-    smallPic: portfolio,
+    smallPic: portfoliosmall,
     isHosted: true,
     tech: [
-      { name: "JavaScript" },
+      { name: "TypeScript" },
       { name: "React" },
       { name: "Node" },
       { name: "CSS" },
@@ -112,7 +113,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     feRepo: "https://github.com/mikeski-aa/messenger-frontend",
     beRepo: "https://github.com/mikeski-aa/messenger-backend",
     type: "Fullstack",
-    smallPic: dmme,
+    smallPic: dmmesmall,
     isHosted: true,
     tech: [
       { name: "JavaScript" },
@@ -131,7 +132,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     projectLink: "https://to-do-app-react-mikeski.netlify.app/",
     feRepo: "https://github.com/mikeski-aa/to-do-app-react",
     type: "Frontend",
-    smallPic: todo,
+    smallPic: todosmall,
     isHosted: true,
     tech: [
       { name: "JavaScript" },
@@ -147,7 +148,7 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
     projectLink: "https://knight-move-react.netlify.app/",
     feRepo: "https://github.com/mikeski-aa/knight-moves-react",
     type: "Frontend",
-    smallPic: knight,
+    smallPic: knightsmall,
     isHosted: true,
     tech: [
       { name: "JavaScript" },
@@ -157,31 +158,6 @@ Frontend is written in TypeScript with React. The app utilizes Tesseract.js for 
       { name: "HTML" },
     ],
   },
-
-  // {
-  //   title: "Where's Waldo - game",
-  //   desc: "Fullstack game project, React frontend on Node backend. Users must identify specific characters on an image by clicking on the image. User time taken to find characters is taken and stored in Postgres database for the leaderboards. ",
-  //   projectLink: "https://wheres-waldo-fe-game.netlify.app",
-  //   feRepo: "https://github.com/mikeski-aa/wheres-waldo-frontend",
-  //   beRepo: "https://github.com/mikeski-aa/wheres-waldo-api",
-  //   type: "Fullstack",
-  //   isHosted: true,
-  // },
-  // {
-  //   title: "Wiki parser - webapp",
-  //   desc: "Node and Express project using MongoDB for storage. The program was written to parse a game wiki, gathering specific vehicle information and storing it in the database. Parsing static content was achieved using Cheerio, and for dynamic content I've used Puppeteer. Although the entire project is not hosted, the parsing component of the project still works.",
-  //   projectLink: "https://www.google.com",
-  //   repoLink: "https://github.com/mikeski-aa/wiki-parser-project",
-  //   type: "Backend",
-  //   isHosted: false,
-  // },
-  // {
-  //   title: "File sharing - webapp",
-  //   desc: "Node and Express project, using Server Side Rendering with Pug. The goal of this project was to gain more practice with express while building a semi-realistic application. The application allows users to upload images which can be shared between users. ",
-  //   repoLink: "https://github.com/mikeski-aa/file-sharing",
-  //   type: "Backend",
-  //   isHosted: false,
-  // },
 ];
 
 export default projects;
