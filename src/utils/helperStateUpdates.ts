@@ -1,13 +1,24 @@
 // helper functions to help with page updates and smooth scrolling
 
+import React from "react";
+
 // smooth scrolling for each element
-function smoothScroll(inputRef) {
-  inputRef.current.scrollIntoView({ behavior: "smooth" });
+function smoothScroll(inputRef: React.RefObject<HTMLDivElement> | null) {
+  if (inputRef != null) {
+    // checking inputRef.current is not null
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 }
 
 // fast scroll
-function notSmoothScroll(inputRef) {
-  inputRef.current.scrollIntoView();
+function notSmoothScroll(inputRef: React.RefObject<HTMLDivElement> | null) {
+  if (inputRef != null) {
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView();
+    }
+  }
 }
 
 // update active buttons depending on scroll location
