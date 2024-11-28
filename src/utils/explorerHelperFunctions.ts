@@ -1,5 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+import { INavItem } from "../interfaces";
+
 // we check if the page is currently active or not
-function checkPageIsOpen(navItems, input) {
+function checkPageIsOpen(navItems: INavItem[], input: string) {
   let found = false;
   for (let x = 0; x < navItems.length; x++) {
     if (navItems[x].shortname === input) {
@@ -11,7 +14,12 @@ function checkPageIsOpen(navItems, input) {
 }
 
 // we copy the object from default page objects to active after finding it by name
-function addNewPageToNav(defaultPages, setNavItems, input, navItems) {
+function addNewPageToNav(
+  defaultPages: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string,
+  navItems: INavItem[]
+) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
   let pageObject;
@@ -25,14 +33,23 @@ function addNewPageToNav(defaultPages, setNavItems, input, navItems) {
     }
   }
 
-  copyNavItems.push(pageObject);
+  // check page object is present
+  if (pageObject) {
+    copyNavItems.push(pageObject);
+  }
+
   // console.log(copyNavItems);
   return setNavItems(copyNavItems);
 }
 
 // function to add bonus page to navItems
 // bonus should NOT be active in this case!
-function addBonusToNavNotEmpty(defaultPages, setNavItems, input, navItems) {
+function addBonusToNavNotEmpty(
+  defaultPages: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string,
+  navItems: INavItem[]
+) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
   let pageObject;
@@ -43,14 +60,20 @@ function addBonusToNavNotEmpty(defaultPages, setNavItems, input, navItems) {
       pageObject = copyDefault[x];
     }
   }
-
-  copyNavItems.push(pageObject);
+  if (pageObject) {
+    copyNavItems.push(pageObject);
+  }
   // console.log(copyNavItems);
   return setNavItems(copyNavItems);
 }
 
 // function to add bonus page to navItems and to set it as active
-function addBonusToNavIsEmpty(defaultPages, setNavItems, input, navItems) {
+function addBonusToNavIsEmpty(
+  defaultPages: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string,
+  navItems: INavItem[]
+) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
   let pageObject;
@@ -63,17 +86,20 @@ function addBonusToNavIsEmpty(defaultPages, setNavItems, input, navItems) {
     }
   }
 
-  copyNavItems.push(pageObject);
+  if (pageObject) {
+    copyNavItems.push(pageObject);
+  }
+
   // console.log(copyNavItems);
   return setNavItems(copyNavItems);
 }
 
 // function to set bonus as active and disabling all other pages
 function focusBonusManyPages(
-  navItems,
-  setNavItems,
-  defaultPages,
-  setDefaultPages
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>
 ) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
@@ -103,7 +129,7 @@ function focusBonusManyPages(
 }
 
 // function to check if bonus page is active
-function checkIfBonusActiveNow(defaultPages) {
+function checkIfBonusActiveNow(defaultPages: INavItem[]) {
   const copyDefault = [...defaultPages];
   let bonusOpen = false;
 
@@ -118,11 +144,11 @@ function checkIfBonusActiveNow(defaultPages) {
 
 // function to disable bonus visibility and enable active of page clicked
 function disableBonusSetNewActive(
-  navItems,
-  setNavItems,
-  defaultPages,
-  setDefaultPages,
-  input
+  navItems: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  defaultPages: INavItem[],
+  setDefaultPages: Dispatch<SetStateAction<INavItem[]>>,
+  input: string
 ) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
@@ -154,7 +180,12 @@ function disableBonusSetNewActive(
 }
 
 // add new page but do not change focus from bonus
-function addNewPageWithBonus(defaultPages, setNavItems, input, navItems) {
+function addNewPageWithBonus(
+  defaultPages: INavItem[],
+  setNavItems: Dispatch<SetStateAction<INavItem[]>>,
+  input: string,
+  navItems: INavItem[]
+) {
   const copyDefault = [...defaultPages];
   const copyNavItems = [...navItems];
   let pageObject;
@@ -167,7 +198,10 @@ function addNewPageWithBonus(defaultPages, setNavItems, input, navItems) {
     }
   }
 
-  copyNavItems.push(pageObject);
+  if (pageObject) {
+    copyNavItems.push(pageObject);
+  }
+
   // console.log(copyNavItems);
   return setNavItems(copyNavItems);
 }
