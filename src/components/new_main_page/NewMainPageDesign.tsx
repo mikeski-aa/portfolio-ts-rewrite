@@ -1,5 +1,5 @@
 import "../../styles/new_main_design/newpagedesign.css";
-import headshot from "../../assets/gif/IMG_252521.png";
+import headshot from "../../assets/gif/IMG_252521.webp";
 import "../../styles/new_main_design/newskills.css";
 import "../../styles/new_main_design/newprojects.css";
 import Typewriter from "typewriter-effect";

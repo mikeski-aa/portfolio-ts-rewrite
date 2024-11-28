@@ -1,6 +1,6 @@
 import Typewriter from "typewriter-effect";
 import "../../styles/new_main_design/newaboutstyle.css";
-import headshot from "../../assets/gif/IMG_252521.png";
+import headshot from "../../assets/gif/IMG_252521.webp";
 
 function NewAboutComp() {
   return (
