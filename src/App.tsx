@@ -2,7 +2,6 @@ import { createContext, useRef, useState, useEffect } from "react";
 import "./App.css";
 import VertBar from "../src/components/VertBar";
 import "../src/styles/aboutme.css";
-
 import NavBar from "./components/NavBar";
 import Footer from "../src/components/Footer";
 import { useInView } from "../src/hooks/useInView";
@@ -146,12 +145,6 @@ function App() {
       disabled: true,
     },
   ]);
-
-  // set states to manage refs
-  // const [aboutVisRef, setAboutVisRef] = useState(useInView(aboutRef, "0px"))
-  // const [projectVisRef, setProjectVisRef] = useState(useInView(projectsRef, "0px"))
-  // const [skillVisRef, setSkillVisRef] = useState(useInView(skillsRef, "0px"))
-  // const [contactVisRef, setContactVisRef] = useState(useInView(contactRef, "0px"))
 
   // using custom hook to check whether an area is in view and adjust text accordingly
   const aboutVisible = useInView(aboutRef, "0px");

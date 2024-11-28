@@ -1,6 +1,7 @@
-import contact, { IContactInterface } from "../../utils/contactData";
+import contact from "../../utils/contactData";
 import NewContactBox from "./NewContactBox";
 import "../../styles/new_main_design/newcontactme.css";
+import { IContactInterface } from "../../interfaces";
 
 function NewContactMe() {
   return (

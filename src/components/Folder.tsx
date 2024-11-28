@@ -3,7 +3,7 @@ import Arrow from "../assets/arrow.svg?react";
 import File from "./File";
 import "../styles/folder.css";
 import { GlobalContext } from "../App";
-import { IBonusItemPage, IGlobalContext, INavItem } from "../interfaces";
+import { IGlobalContext, INavItem } from "../interfaces";
 
 function Folder({
   rootName,
