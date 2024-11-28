@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 
 // this hook will check if the element is in view.
 // Element ref is passed into the function
 
-export const useInView = (element, rootMargin) => {
+export const useInView = (
+  element: RefObject<HTMLDivElement>,
+  rootMargin: string
+) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -17,7 +20,11 @@ export const useInView = (element, rootMargin) => {
 
     current && observer?.observe(current);
 
-    return () => current && observer.unobserve(current);
+    return () => {
+      if (current) {
+        current && observer.unobserve(current);
+      }
+    };
   }, []);
 
   return isVisible;
