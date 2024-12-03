@@ -15,7 +15,7 @@ function NewAboutComp() {
       <div className="newAbout content div">
         <div className="newAboutHeading">Michal Nowak&nbsp;</div>
         <div className="newAboutSubHeading">
-          Fullstack developer based in Berlin&nbsp;
+          Frontend developer based in Berlin&nbsp;
         </div>
         <div className="newAboutText">
           <Typewriter
@@ -23,7 +23,7 @@ function NewAboutComp() {
             onInit={(typewriter) => {
               typewriter
                 .typeString(
-                  "I'm a self-taught fullstack developer who's always been drawn to the creative and technical aspects of building websites. I love the challenge of turning ideas into reality, and I'm constantly learning new things to stay on top of the latest trends in web development."
+                  "I'm a self-taught Frontend developer who's always been drawn to the creative and technical aspects of building websites. I love the challenge of turning ideas into reality, and I'm constantly learning new things to stay on top of the latest trends in web development."
                 )
                 .start();
             }}

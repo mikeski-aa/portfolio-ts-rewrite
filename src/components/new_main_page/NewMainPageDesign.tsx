@@ -29,7 +29,7 @@ function NewMainPageDesign() {
         <div className="newAbout content div">
           <div className="newAboutHeading">Michal Nowak&nbsp;</div>
           <div className="newAboutSubHeading">
-            Fullstack developer based in Berlin&nbsp;
+            Frontend developer based in Berlin&nbsp;
           </div>
           <div className="newAboutText">
             <Typewriter
