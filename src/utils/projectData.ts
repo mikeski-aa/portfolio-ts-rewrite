@@ -6,10 +6,29 @@ import todosmall from "../assets/project_cards/todosmall.webp";
 import myocrappsmall from "../assets/project_cards/myocrappsmall.webp";
 import portfoliosmall from "../assets/project_cards/portfoliosmall.webp";
 import tictactoesmall from "../assets/project_cards/mptictactoesmall.webp";
+import tracker from "../assets/project_cards/tracker.webp";
 
 import { IProjects } from "../interfaces";
 
 const projects: IProjects[] = [
+  {
+    title: "Application Tracker",
+    desc: `Application tracker built to make it easy to track your job applications, tracking how long a company takes to respond and more. This is only a frontend app, however, users can export their saved tables as CSV files and import them another time if they wish to edit. The "local" version of the site has more features, such as saving your details for easy copy paste, as well as being connected to Postgres DB via Express backend.`,
+    projectLink: "https://job-tracker-buddy.netlify.app/",
+    feRepo: "https://github.com/mikeski-aa/my-ats",
+    beRepo: "https://github.com/mikeski-aa/my-aps-be",
+    type: "Fullstack",
+    smallPic: tracker,
+    isHosted: true,
+    tech: [
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "React" },
+      { name: "Node" },
+      { name: "CSS" },
+      { name: "HTML" },
+    ],
+  },
   {
     title: "OCR / Parser project",
     desc: `Air RB Parser is an application designed to analyze screenshots from the "Air Realistic Battle" mode in the MMO game "War Thunder" to determine the battle rating (BR) of the user's team's vehicles, thereby revealing whether they are in an "uptier" or "downtier" scenario.
