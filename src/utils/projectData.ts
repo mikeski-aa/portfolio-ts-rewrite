@@ -31,9 +31,9 @@ const projects: IProjects[] = [
   },
   {
     title: "OCR / Parser project",
-    desc: `Air RB Parser is an application designed to analyze screenshots from the "Air Realistic Battle" mode in the MMO game "War Thunder" to determine the battle rating (BR) of the user's team's vehicles, thereby revealing whether they are in an "uptier" or "downtier" scenario.
+    desc: `This parser is an application designed to analyze screenshots from the "Air Realistic Battle" mode in the MMO game "War Thunder" to determine the battle rating (BR) of the user's team's vehicles, thereby revealing whether they are in an "uptier" or "downtier" scenario.
 Frontend is written in TypeScript with React. The app utilizes Tesseract.js for Optical Character Recognition (OCR). Data parsing and handling is done with Cheerio and Papa Parse for CSV operations.`,
-    projectLink: "https://wt-airrb-check.netlify.app/",
+    projectLink: "https://rb-check-project-one.netlify.app/",
     feRepo: "https://github.com/mikeski-aa/ocr-scoreboard-check",
     type: "Frontend",
     smallPic: myocrappsmall,
